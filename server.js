@@ -25,7 +25,7 @@ if (!fs.existsSync(tempDir)) {
 let cookieData = process.env.YOUTUBE_COOKIES || '';
 for (let i = 1; i <= 5; i++) {
     if (process.env[`YOUTUBE_COOKIES_${i}`]) {
-        cookieData += process.env[`YOUTUBE_COOKIES_${i}`];
+        cookieData += process.env[`YOUTUBE_COOKIES_${i}`] + '\n';
     }
 }
 
