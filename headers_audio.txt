@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Disposition: attachment; filename="Rick_Astley___Never_Gonna_Give_You_Up__Official_Video___4K_Remaster_.mp3"
+Content-Type: audio/mpeg
+Date: Thu, 01 Oct 2026 09:05:31 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
