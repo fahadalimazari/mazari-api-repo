@@ -22,11 +22,18 @@ if (!fs.existsSync(tempDir)) {
 }
 
 // Write cookies if provided via environment variables
-if (process.env.YOUTUBE_COOKIES) {
+let cookieData = process.env.YOUTUBE_COOKIES || '';
+for (let i = 1; i <= 5; i++) {
+    if (process.env[`YOUTUBE_COOKIES_${i}`]) {
+        cookieData += process.env[`YOUTUBE_COOKIES_${i}`];
+    }
+}
+
+if (cookieData) {
     const cookiesPath = path.join(__dirname, 'cookies.txt');
-    fs.writeFileSync(cookiesPath, process.env.YOUTUBE_COOKIES.replace(/\\n/g, '\n'), 'utf8');
+    fs.writeFileSync(cookiesPath, cookieData.replace(/\\n/g, '\n'), 'utf8');
     process.env.YOUTUBE_COOKIES_PATH = cookiesPath;
-    console.log('YouTube cookies loaded from environment variable.');
+    console.log('YouTube cookies loaded from environment variables.');
 }
 
 // Routes
