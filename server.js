@@ -21,6 +21,14 @@ if (!fs.existsSync(tempDir)) {
     fs.mkdirSync(tempDir);
 }
 
+// Write cookies if provided via environment variables
+if (process.env.YOUTUBE_COOKIES) {
+    const cookiesPath = path.join(__dirname, 'cookies.txt');
+    fs.writeFileSync(cookiesPath, process.env.YOUTUBE_COOKIES.replace(/\\n/g, '\n'), 'utf8');
+    process.env.YOUTUBE_COOKIES_PATH = cookiesPath;
+    console.log('YouTube cookies loaded from environment variable.');
+}
+
 // Routes
 const youtubeRoutes = require('./routes/youtube');
 const tiktokRoutes = require('./routes/tiktok');
